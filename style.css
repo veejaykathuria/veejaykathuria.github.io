@@ -109,7 +109,7 @@ h2 {
 
 p { margin: 0 0 14px; }
 
-#about p { text-align: justify; hyphens: auto; }
+
 
 .interests { margin: 0; }
 .interests dt { font-weight: 600; color: var(--accent); }
@@ -165,5 +165,64 @@ p { margin: 0 0 14px; }
     .portrait { width: 140px; height: 140px; }
     h1 { font-size: 1.9rem; }
     .entry-head { flex-direction: column; gap: 0; }
-    #about p, .paper p { text-align: left; }
+    .paper p { text-align: left; }
+}
+
+/* Tabs */
+.tabs {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    gap: 4px;
+    margin: 0 0 28px;
+    padding: 8px 0 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans);
+}
+.tabs a {
+    padding: 10px 16px;
+    margin-bottom: -1px;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent;
+}
+.tabs a:hover { color: var(--accent); text-decoration: none; }
+.tabs a[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.tabs a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.panel { margin-top: 0; }
+.panel > .block { margin-top: 32px; }
+.panel > .block:first-child { margin-top: 0; }
+.about p { text-align: justify; hyphens: auto; }
+
+/* CV tab */
+.cv-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.button:hover { text-decoration: none; opacity: 0.9; }
+.button.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.cv-frame {
+    width: 100%;
+    height: 980px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: #fff;
+}
+
+@media (max-width: 600px) {
+    .tabs { justify-content: space-between; gap: 0; }
+    .tabs a { padding: 10px 8px; font-size: 0.95rem; }
+    .about p { text-align: left; }
+    .cv-frame { display: none; }
 }
